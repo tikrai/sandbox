@@ -1,0 +1,25 @@
+### IntelliJ related ignores
+*.iml
+.idea/
+
+### NetBeans related
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+.nb-gradle/
+
+### Eclipse related ignores
+bin/
+tmp/
+out/
+.settings/
+.loadpath
+.project
+.classpath
+
+### test tool cases
+src/main/resources
