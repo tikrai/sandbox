@@ -29,7 +29,7 @@ public class DvinaryTreeTest {
     Integer i1 = tree.put("trys", 3);
     Integer i2 = tree.put("trys", 4);
     assertNull(i1);
-    assertEquals(new Integer(3), i2);
+    assertEquals(Integer.valueOf(3), i2);
   }
 
   @Test
@@ -50,27 +50,27 @@ public class DvinaryTreeTest {
     tree.put("septyni", 7);
     tree.put("astuoni", 8);
     tree.put("devyni", 9);
-    assertEquals(new Integer(1), tree.get("vienas"));
-    assertEquals(new Integer(2), tree.get("du"));
-    assertEquals(new Integer(3), tree.get("trys"));
-    assertEquals(new Integer(4), tree.get("keturi"));
-    assertEquals(new Integer(5), tree.get("penki"));
-    assertEquals(new Integer(6), tree.get("sesi"));
-    assertEquals(new Integer(7), tree.get("septyni"));
-    assertEquals(new Integer(8), tree.get("astuoni"));
-    assertEquals(new Integer(9), tree.get("devyni"));
+    assertEquals(Integer.valueOf(1), tree.get("vienas"));
+    assertEquals(Integer.valueOf(2), tree.get("du"));
+    assertEquals(Integer.valueOf(3), tree.get("trys"));
+    assertEquals(Integer.valueOf(4), tree.get("keturi"));
+    assertEquals(Integer.valueOf(5), tree.get("penki"));
+    assertEquals(Integer.valueOf(6), tree.get("sesi"));
+    assertEquals(Integer.valueOf(7), tree.get("septyni"));
+    assertEquals(Integer.valueOf(8), tree.get("astuoni"));
+    assertEquals(Integer.valueOf(9), tree.get("devyni"));
     assertNull(tree.get("desimt"));
   }
 
   @Test(expected = ClassCastException.class)
   public void getFailsIfKeyWrongOnNonEmptyMap() {
     tree.put("vienas", 1);
-    tree.get(new Integer(9));
+    tree.get(Integer.valueOf(9));
   }
 
   @Test
   public void getFailsIfKeyWrongOnEmptyMap() {
-    assertNull(tree.get(new Integer(9)));
+    assertNull(tree.get(Integer.valueOf(9)));
   }
 
   @Test
@@ -79,6 +79,6 @@ public class DvinaryTreeTest {
     tree.put("du", 2);
     assertTrue(tree.containsKey("du"));
     assertFalse(tree.containsKey("devyni"));
-    assertFalse(tree.containsKey(new Integer(9)));
+    assertFalse(tree.containsKey(Integer.valueOf(9)));
   }
 }

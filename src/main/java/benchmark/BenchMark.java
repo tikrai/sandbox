@@ -18,24 +18,39 @@ public class BenchMark {
   }
 
   @Benchmark
-  @Fork(value = 1, warmups = 0)
-  public void newHashset() {
-    Set<String> stringSet1 = new HashSet<>(Arrays.asList(
+  @Fork(value = 2, warmups = 1)
+  public void setOf() {
+    Set<String> stringSet1 = Set.of(
         "a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a0",  
-        "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b0",  
-        "c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c0",  
-        "d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9", "d0",  
-        "e1", "e2", "e3", "e4", "e5", "e6", "e7", "e8", "e9", "e0",  
-        "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f0",  
-        "g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8", "g9", "g0",  
+        "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b0",
+        "c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c0",
+        "d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9", "d0",
+        "e1", "e2", "e3", "e4", "e5", "e6", "e7", "e8", "e9", "e0",
+        "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f0",
+        "g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8", "g9", "g0",
+        "h1", "h2", "h3", "h4", "h5", "h6", "h7", "h8", "h9", "h0"
+    );
+  }
+
+  @Benchmark
+  @Fork(value = 2, warmups = 1)
+  public void newHashset() {
+    Set<String> stringSet2 = new HashSet<>(Arrays.asList(
+        "a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a0",
+        "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b0",
+        "c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c0",
+        "d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9", "d0",
+        "e1", "e2", "e3", "e4", "e5", "e6", "e7", "e8", "e9", "e0",
+        "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f0",
+        "g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8", "g9", "g0",
         "h1", "h2", "h3", "h4", "h5", "h6", "h7", "h8", "h9", "h0"
     ));
   }
 
   @Benchmark
-  @Fork(value = 1, warmups = 0)
+  @Fork(value = 2, warmups = 1)
   public void streamToSet() {
-    Set<String> stringSet2 = Stream.of(
+    Set<String> stringSet3 = Stream.of(
         "a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a0",
         "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b0",
         "c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c0",
@@ -52,3 +67,7 @@ public class BenchMark {
 //  BenchMark.newHashset   thrpt  200  845559.859 ± 19692.896  ops/s
 //  BenchMark.streamToSet  thrpt  200  611906.182 ± 12426.586  ops/s
 
+//  Benchmark               Mode  Cnt       Score       Error  Units
+//  BenchMark.newHashset   thrpt   40  777878.792 ± 20830.916  ops/s
+//  BenchMark.setOf        thrpt   40  693244.973 ± 14782.555  ops/s
+//  BenchMark.streamToSet  thrpt   40  558051.585 ± 15468.759  ops/s

@@ -33,6 +33,6 @@ public class Main {
     map.put("astuoni", 8);
     map.put("devyni", 9);
     System.out.println(map);
-    System.out.println(map.get(new Integer(9)));
+    System.out.println(map.get(Integer.valueOf(9)));
   }
 }
